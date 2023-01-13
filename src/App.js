@@ -1,34 +1,25 @@
-import React from 'react';
+import { format } from "date-fns";
+import React from "react";
+import Calendar from './calendar/Calendar'
 
-function App() {
+const App = () => {
+  // select the date 
+  const selectedData = new Date("2022-12-12")
+console.log("selectedData",selectedData);
+
   return (
-    <div className="flex flex-col h-full items-center justify-center bg-gray-200 text-gray-700">
-      <div className="flex items-center">
-        <h1 className="text-6xl font-thin tracking-wider">Create React App + Tailwind CSS</h1>
+    <div className="mt-16 flex flex-col items-center gap-8">
+      <div className="flex flex-col items-center gap-4">
+        <p>
+          <strong>Selected Date: </strong>
+          {format(selectedData, "dd/MM/yyyy")}
+        </p>
+
       </div>
-      <p className="my-6 tracking-wide">
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <div className="mt-6 flex justify-center">
-        <a
-          className="uppercase hover:underline"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a
-          className="ml-10 uppercase hover:underline"
-          href="https://tailwindcss.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Tailwind
-        </a>
-      </div>
+
+      <Calendar value={selectedData} />
     </div>
   );
-}
+};
 
 export default App;
