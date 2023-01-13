@@ -1,6 +1,7 @@
 import {
   differenceInDays,
   endOfMonth,
+  format,
   startOfMonth,
 } from "date-fns";
 import React from "react";
@@ -21,6 +22,7 @@ const Calendar = ({ value }) => {
 
   return (
     <div className="w-[400px] border-t border-l">
+      <Cell className="col-span-3">{format(value, "LLLL yyyy")}</Cell>
       <div className="grid grid-cols-7 items-center justify-center text-center">
         {weeks.map((week) => (
           <Cell className="text-xs font-bold uppercase">{week}</Cell>
